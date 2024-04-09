@@ -17,3 +17,9 @@
   margin: 0;
   padding: 0;
 }
+
+@keyframes fall {
+  to {
+    transform: translateY(600px);
+  }
+}
