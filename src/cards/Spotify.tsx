@@ -1,9 +1,9 @@
 import { useState } from "react"
 
-import Card from "../components/Card"
-import { PlayMediaIcon, PauseMediaIcon, SpotifyIcon } from "../components/Icons"
+import Card from "@/components/Card"
+import { PlayMediaIcon, PauseMediaIcon, SpotifyIcon } from "@/components/Icons"
 
-import spotifyCover from "../assets/spotify-cover.png"
+import spotifyCover from "@/assets/spotify-cover.png"
 
 function Spotify() {
   const [playing, setPlaying] = useState(false)
@@ -14,10 +14,6 @@ function Spotify() {
           className="relative w-12 h-12 cursor-pointer select-none"
           onClick={() => setPlaying(!playing)}>
           <img className={`${playing ? "animate-spin blur-sm" : ""} transition-all w-11 h-11 rounded-full`} src={spotifyCover} alt="spotifyCover" />
-        </div>
-        <div className="pl-4 select-none">
-          <p className="text-gray-400 font-semibold">OOOOOO</p>
-          <p className="font-semibold">3xoo#xo0o#-|o9p</p>
         </div>
       </div>
       {/* blur effect up - new changes from here */}
@@ -31,8 +27,8 @@ function Spotify() {
             {!!playing && <PauseMediaIcon />}
           </div>
         </div>
-        <div className="pl-4 text-wrap break-words">
-          <p className="text-gray-400/90">Soamairi</p>
+        <div className="pl-4 flex flex-col text-wrap break-words">
+          <p className="text-gray-200/90">Soamairi</p>
           <p className="font-semibold">tokyo dream - lofi</p>
         </div>
         <div className="flex justify-end items-end flex-1">
