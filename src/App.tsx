@@ -1,14 +1,16 @@
-import { Introduction, Spotify, LastProject, MyStack } from "./cards"
+import { Introduction, Spotify, LastProject, MyStack, ContactForm, Gallery } from "./cards"
 import { ICard } from "./types"
 
 const cardsLeft: ICard[] = [
   { content: Introduction },
   { content: Spotify },
+  { content: Gallery },
 ]
 
 const cardsRight: ICard[] = [
   { content: LastProject },
-  { content: MyStack }
+  { content: MyStack },
+  { content: ContactForm },
 ]
 
 function App() {
