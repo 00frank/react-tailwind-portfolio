@@ -23,3 +23,17 @@
     transform: translateY(600px);
   }
 }
+
+.carousel-container {
+  height: 444px;
+}
+
+@media screen and (min-width: 768px) {
+  .carousel-container {
+    height: 555px;
+  }
+}
+
+.react-multi-carousel-dot--active button {
+  background-color: white !important;
+}
