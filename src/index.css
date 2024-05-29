@@ -24,16 +24,15 @@
   }
 }
 
-.carousel-container {
-  height: 444px;
+.carousel-image {
+  transition: translate 500ms ease-in-out;
 }
 
-@media screen and (min-width: 768px) {
-  .carousel-container {
-    height: 555px;
-  }
+.carousel-image-dot {
+  display: inline;
+  transition: scale 100ms ease-in-out;
 }
 
-.react-multi-carousel-dot--active button {
-  background-color: white !important;
+.carousel-image-dot:hover {
+  scale: 1.2;
 }

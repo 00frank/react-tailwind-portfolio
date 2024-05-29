@@ -1,10 +1,11 @@
-import Carousel, { ResponsiveType } from "react-multi-carousel";
+import { useState } from "react";
+import { useSwipeable } from "react-swipeable";
 
 import Card from "@/components/Card";
-import useWindowDimensions from "@/hooks/useWindowDimensions";
+import { CameraIcon, DotIcon } from "@/components/Icons";
 
-// shows better with 2:3 images
 const images = [
+  "https://images.unsplash.com/photo-1716595792584-9546ff238176?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   "https://images.unsplash.com/photo-1712673363052-0d603997af16?q=80&w=1996&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   "https://images.unsplash.com/photo-1542976735-f64ecb935c2d?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   "https://images.unsplash.com/photo-1713213915575-0c88efc9149e?q=80&w=2016&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -12,54 +13,42 @@ const images = [
   "https://images.unsplash.com/photo-1713051496669-e8ca782ace1b?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 ]
 
-const responsive: ResponsiveType = {
-  desktop: {
-    breakpoint: { max: 3000, min: 0 },
-    items: 1,
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 464 },
-    items: 1,
-  },
-  mobile: {
-    breakpoint: { max: 464, min: 0 },
-    items: 1,
-  }
-};
-
-function Gallery() {
-  const { width } = useWindowDimensions()
-  const containerSize = width >= 768 ? "100%" : width - (34)
-
-  const styles: React.CSSProperties = {
-    objectFit: "contain",
-    display: "block",
-    height: '100%',
-    width: "auto",
-    margin: 'auto',
-  }
+function Carousel({ images }: { images: string[] }) {
+  const [imageIndex, setImageIndex] = useState(0);
+  const swipeHandlers = useSwipeable({
+    onSwipedLeft: () => setImageIndex(prev => prev + 1 > images.length - 1 ? 0 : prev + 1),
+    onSwipedRight: () => setImageIndex(prev => prev - 1 < 0 ? images.length - 1 : prev - 1)
+  })
 
   return (
-    <Card border className="overflow-hidden">
-      <div className="flex justify-center">
-        <div style={{ width: containerSize }}>
-          <Carousel
-            swipeable={true}
-            draggable={false}
-            showDots={true}
-            responsive={responsive}
-            infinite={true}
-            keyBoardControl={true}
-            customTransition="all .5"
-            containerClass="carousel-container"
-            removeArrowOnDeviceType={[]}
-            dotListClass="!bottom-5 custom-dot-list-style"
-          >
-            {images.map((el, i) => (
-              <img src={el} alt={`image-${i}`} key={i} style={styles} />
-            ))}
-          </Carousel>
-        </div>
+    <section className="h-[296px] w-full relative">
+      <div className="w-full h-full flex overflow-hidden" {...swipeHandlers}>
+        {images.map((el, i) => (
+          <img
+            key={i}
+            src={el}
+            alt={`image-${i}`}
+            className="carousel-image object-cover block h-full w-full flex-shrink-0 flex-grow-0"
+            style={{ translate: `${-100 * imageIndex}%` }} />
+        ))}
+      </div>
+      <div className="p-0.5 rounded-full backdrop-blur-sm absolute bottom-5 left-1/2 -translate-x-1/2">
+        {images.map((_, i) => (
+          <DotIcon
+            className={`carousel-image-dot ${imageIndex === i ? "text-white text-xl" : "text-gray-500 text-lg hover:cursor-pointer"}`}
+            onClick={() => setImageIndex(i)} key={i} />
+        ))}
+      </div>
+    </section>
+  )
+}
+
+function Gallery() {
+  return (
+    <Card border className="overflow-hidden relative">
+      <Carousel images={images} />
+      <div className="absolute right-0 bottom-0 p-4">
+        <CameraIcon className="text-xl" />
       </div>
     </Card>
   )
