@@ -1,6 +1,5 @@
 import Card from "@/components/Card"
-import { LinkIcon } from "@/components/Icons"
-import { DiGithubBadge } from "react-icons/di"
+import { LinkIcon, GithubIcon } from "@/components/Icons"
 
 function LastProject() {
   return (
@@ -8,7 +7,7 @@ function LastProject() {
       to="#"
       className="bg-gradient-to-br from-[#FF27FF] via-[#9A00FF] to-[#0F2AFF] rounded-xl p-8">
       <div className="flex justify-center items-center my-10">
-        <DiGithubBadge className="h-28 w-28" />
+        <GithubIcon className="h-28 w-28" />
       </div>
       <div className="flex">
         <p>
