@@ -8,7 +8,7 @@ function ContactForm() {
       border>
       <div>
         <h3 className="text-white font-bold block">Say hi</h3>
-        <p className="text-slate-200 mb-2">I'll try to reply asap ⚡️</p>
+        <p className="text-slate-200/70 mb-2">I'll try to reply asap ⚡️</p>
       </div>
       <form action="https://formspree.io/f/xqkgnook" method="POST">
         <input className="rounded-lg p-2 bg-zinc-800 text-sm w-full mb-2" name="email" type="text" placeholder="Email" />
