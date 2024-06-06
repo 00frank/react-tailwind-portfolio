@@ -25,6 +25,13 @@ function Spotify() {
       audioRef.current.pause()
   }, [playing])
 
+  useEffect(() => {
+    audioRef.current.addEventListener('ended', () => audioRef.current.play());
+    return () => {
+      audioRef.current.removeEventListener('ended', () => audioRef.current.play());
+    };
+  }, []);
+
   return (
     <Card className="bg-gradient-to-tr rounded-xl p-4 from-lime-950/50 from-30% to-[#1FDD63]/60">
       <div className="flex">
