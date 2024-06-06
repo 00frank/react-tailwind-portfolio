@@ -8,7 +8,7 @@ import { SiNestjs, SiTypescript } from "react-icons/si";
 
 import { DiGithubBadge } from "react-icons/di"
 import { GoDotFill } from "react-icons/go";
-
+import PdfSvgIcon from "@/assets/pdf.tsx";
 
 export {
   IoLogoLinkedin as LinkedinIcon,
@@ -26,4 +26,5 @@ export {
   DiGithubBadge as GithubIcon,
   GoDotFill as DotIcon,
   IoCamera as CameraIcon,
+  PdfSvgIcon as PdfIcon,
 }
