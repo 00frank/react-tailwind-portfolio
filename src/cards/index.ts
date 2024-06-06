@@ -4,6 +4,8 @@ import LastProject from "./LastProject";
 import MyStack from "./MyStack";
 import ContactForm from "./ContactForm";
 import Gallery from "./Gallery";
+import ReleasedProject from "./ReleasedProject";
+import DownloadResume from "./DownloadResume";
 
 export {
   Introduction,
@@ -11,5 +13,7 @@ export {
   LastProject,
   MyStack,
   ContactForm,
-  Gallery
+  Gallery,
+  ReleasedProject,
+  DownloadResume,
 }

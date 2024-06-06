@@ -43,9 +43,9 @@ function Carousel({ images }: { images: string[] }) {
   )
 }
 
-function Gallery() {
+function Gallery({ className }: { className: string }) {
   return (
-    <Card border className="overflow-hidden relative">
+    <Card border className={`${className} overflow-hidden relative`}>
       <Carousel images={images} />
       <div className="absolute right-0 bottom-0 p-4">
         <CameraIcon className="text-xl" />
