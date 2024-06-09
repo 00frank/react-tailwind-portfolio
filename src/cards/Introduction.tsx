@@ -18,9 +18,10 @@ const Introduction = () => {
       </div>
       <h1 className="text-4xl font-semibold mb-6">Frank <span hidden>García</span></h1>
       <p className="text-gray-200/70 mb-6 text-wrap">Cloud engineer based in Buenos Aires, AR <ARFlag />. Currently focused on my studies at{" "}
-        <a className="text-white hover:underline" href="#" target="_blank">UCEMA</a>{" "}
-        and programming for{" "}
-        <a className="text-white hover:underline" href="#" target="_blank">example.co</a>.
+        <a className="text-white hover:underline" href="https://ucema.edu.ar/" target="_blank">UCEMA</a>{" "}
+        and <span className="text-white hover:underline">open for work</span> 
+        {/* and programming for{" "} */}
+        {/* <a className="text-white hover:underline" href="#" target="_blank">example.co</a>. */}
       </p>
       <Button
         to="https://linkedin.com/in/garcia-frank"
